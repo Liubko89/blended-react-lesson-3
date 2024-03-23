@@ -1,6 +1,6 @@
 import { Container, Heading, Section } from 'components';
 
-export const Home = () => {
+const Home = () => {
   return (
     <Section>
       <Container>
@@ -9,3 +9,5 @@ export const Home = () => {
     </Section>
   );
 };
+
+export default Home;
