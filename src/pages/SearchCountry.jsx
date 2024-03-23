@@ -1,10 +1,22 @@
-import { Container, Heading, Section } from 'components';
+import {
+  Container,
+  CountryList,
+  Heading,
+  Loader,
+  SearchForm,
+  Section,
+} from 'components';
+import useFatchByRegion from '../hooks/useFatchByRegion';
 
 const SearchCountry = () => {
+  const { countries, loader, error, onHandleSubmit } = useFatchByRegion();
   return (
     <Section>
       <Container>
-        <Heading title="SearchCountry" bottom />
+        <SearchForm onSubmit={onHandleSubmit} />
+        {loader && <Loader />}
+        {error && <Heading title="Something went wrong ..." bottom />}
+        {countries.length > 0 && <CountryList countries={countries} />}
       </Container>
     </Section>
   );
